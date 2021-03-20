@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+
+@font-face {
+  font-family: 'DroidSansMono';
+  src: url('DroidSansMono.ttf') format('truetype');
+}
+
+
+/*------DEFAULT STYLES------*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color: white;
+}
+
+
+
+/*------BACKGROUNDS------*/
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.background-front {
+  background-color: #084A99;
+  z-index: -2;
+  transition: all 1s linear;
+}
+
+.background-back {
+  background-color: #F81B00;
+  z-index: -3;
+}
+
+.gradient-overlay {
+  background-image: radial-gradient(150.35% 150.35% at 50% 50%, rgba(0, 0, 0, 0) 0%, #000000 120%);
+  z-index: -1;
+}
+
+
+
+/*------HEADER------*/
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 4em;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 1.3em;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.color-picker {
+  position: absolute;
+  right: 1em;
+  transform: translateX(-50%);
+  width: 2.5em;
+  cursor: pointer;
+}
+
+.color-picker img {
+  width: 100%;
+}
+
+
+
+/*------MAIN-------*/
+
+main {
+  text-align: center;
+}
+
+.timer-input-form {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: all .5s ease;
+}
+
+.timer-input {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+}
+
+.timer-input-field {
+  text-align: center;
+}
+
+label {
+  font-size: .9em;
+}
+
+input {
+  width: 2em;
+  background-color: transparent;
+  border: none;
+  border-bottom: 5px solid #fff;
+  stroke-linecap: round;
+  padding: .2em;
+  font-family: 'DroidSansMono';
+  font-size: 2em;
+  text-align: center;
+  color: #fff;
+}
+
+input:focus {
+  outline: none;
+}
+
+.timer-input-field label {
+  font-weight: 400;
+  display: block;
+  text-transform: uppercase;
+}
+
+.start-timer-btn {
+  display: inline-block;
+  padding: 12px 40px;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 5em;
+  font-weight: 500;
+  user-select: none;
+  cursor: pointer;
+}
+
+
+
+/*------TIMER OVERLAY------*/
+
+.timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'DroidSansMono';
+  transform: translate(-50%, -50%) scale(1);
+  transition: all .5s ease;
+  z-index: 5;
+}
+
+.timer-numbers {
+  font-size: 4em;
+}
+
+.timer-controls {
+  margin-top: 40px;
+}
+
+.pause-btn {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.pause-icon {
+  background-image: url("img/pause.svg");
+  background-size: cover;
+}
+
+.play-icon {
+  background-image: url("img/play.svg");
+  background-size: cover;
+}
+
+.stop-btn {
+  width: 50px;
+  height: 50px;
+  background: url("img/stop.svg");
+  background-size: cover;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+
+
+/*------COLOR MENU OVERLAY------*/
+
+.color-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 10;
+}
+
+.color-menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F4F4F4;
+  color: #000;
+  padding: 25px 30px;
+  border-radius: 8%;
+}
+
+.color-section {
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.color-section p {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.color-holder {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+}
+
+.color-item {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 15px;
+
+  transition: all .2s ease;
+
+  box-sizing: border-box;
+}
+
+.color-item:hover {
+  transform: scale(1.1);
+}
+
+.selected-item {
+  background-image: url("img/check.svg");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: none;
+}
+
+.confirm-color-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 25px;
+  background: #2074F4;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 20px;
+  user-select: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.confirm-color-btn:hover {
+  opacity: .9;
+}
+
+
+
+/*------FOOTER------*/
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+}
+
+footer span {
+  font-size: .8em;
+}
+
+
+
+/*------UTILITY------*/
+
+.disabled {
+  opacity: .5;
+  cursor: default;
+  pointer-events: none;
+}
+
+.hidden {
+  opacity: 0;
+  top: 110vh;
+}
+
+.timer-controls .hidden {
+  width: 0;
+  margin: 0;
+  cursor: default;
+  pointer-events: none;
+}
+
+.blinking {
+  animation-name: blink-anim;
+  animation-iteration-count: infinite;
+  animation-timing-function: step-end;
+  animation-duration: .8s;
+}
+
+
+
+/*------ANIMATION------*/
+
+@keyframes blink-anim {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+
+
+/*------MEDIA QUERY------*/
+
+@media only screen and (min-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .color-picker {
+    right: 3em;
+    width: 3em;
+  }
+
+  label {
+    font-size: 1em;
+  }
+
+  input {
+    width: 2em;
+    font-size: 3em;
+  }
+
+  .timer-numbers {
+    font-size: 4.5em;
+  }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="A customizable color timer.">
+  <meta name="keywords" content="color, timer, time">
+  <meta name="author" content="Toni Stokić">
+  <link rel="stylesheet" href="main.css">
+  <title>Color Timer</title>
+</head>
+
+<body>
+  <div class="background background-front" id="backgroundFront"></div>
+  <div class="background background-back" id="backgroundBack"></div>
+  <div class="background gradient-overlay"></div>
+
+  <header>
+    <h1>Color Timer</h1>
+    <button class="color-picker" id="colorPickerButton">
+      <img src="img/color-wheel.svg" alt="color picker" />
+    </button>
+  </header>
+
+  <main>
+    <form class="timer-input-form" id="inputSection">
+      <div class="timer-input">
+        <div class="timer-input-field">
+          <label for="inputHrs">hrs.</label>
+          <input type="tel" id="inputHrs" maxlength="2" min="0" autocomplete="off" />
+        </div>
+        <div class="timer-input-field">
+          <label for="inputMin">min.</label>
+          <input type="tel" id="inputMin" maxlength="2" min="0" autocomplete="off" />
+        </div>
+        <div class="timer-input-field">
+          <label for="inputSec">sec.</label>
+          <input type="tel" id="inputSec" maxlength="3" min="0" autocomplete="off" />
+        </div>
+      </div>
+
+      <div class="start-timer-btn disabled" id="startButton">start</div>
+    </form>
+
+    <!-- Hidden timer overlay -->
+    <div class="timer hidden" id="timerSection">
+      <div class="timer-numbers" id="timerNumbers">
+        <span id="timerHrs"></span><span>:</span><span id="timerMin"></span><span>:</span><span id="timerSec"></span>
+      </div>
+      <div class="timer-controls">
+        <button class="pause-btn pause-icon" id="pauseButton"><!--
+        --><button class="stop-btn" id="stopButton">
+      </div>
+    </div>
+
+    <!-- Hidden color overlay -->
+    <div class="color-menu-overlay hidden" id="colorMenuOverlay">
+      <div class="color-menu">
+        <div class="color-section">
+          <p>Starting Color</p>
+          <div class="color-holder" id="startColorHolder">
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item selected-item"></div>
+            <div class="color-item"></div>
+          </div>
+        </div>
+        <div class="color-section">
+          <p>Ending Color</p>
+          <div class="color-holder" id="endColorHolder">
+            <div class="color-item selected-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+            <div class="color-item"></div>
+          </div>
+        </div>
+  
+        <div class="confirm-color-btn" id="confirmColorButton">Confirm</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>Toni Stokić 2020</span>
+  </footer>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
